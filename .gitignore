@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual env
+myvenv/
+myvenv310/
+.venv/
+
+# Dataset
+data/
+*.csv
+
+# Models
+*.pkl
+*.h5
+
+# System
+.DS_Store
+Thumbs.db

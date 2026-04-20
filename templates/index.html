@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sign Language Interpreter</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header>
+            <h1>AI Sign Language Assistant</h1>
+            <p>Live Keypoint Hand Recognition powered by Custom Random Forest Model</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="main-grid">
+            
+            <!-- Video Section -->
+            <div class="video-container glass-panel">
+                <div class="video-placeholder" id="video-placeholder">
+                    <span>Camera Offline</span>
+                </div>
+                <!-- Dynamic Image tag connected to Flask Video generator -->
+                <img id="video-stream" src="" style="display: none;" alt="Video Feed">
+                
+                <div class="controls">
+                    <button id="start-btn" class="btn primary">Start Camera</button>
+                    <button id="stop-btn" class="btn danger" style="display: none;">Stop Camera</button>
+                    <div class="toggle-container">
+                        <label class="switch">
+                            <input type="checkbox" id="tts-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="toggle-label">Voice (TTS)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Analytics Section -->
+            <div class="dashboard glass-panel">
+                <div class="status-card">
+                    <h2>Live Prediction</h2>
+                    <div class="prediction-box">
+                        <span id="pred-label" class="pred-text fade-in">Waiting...</span>
+                        <div class="confidence-wrapper">
+                            <div class="confidence-bar">
+                                <div id="confidence-fill" class="confidence-fill"></div>
+                            </div>
+                            <span id="pred-conf">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-card">
+                    <h2>Recent Gestures</h2>
+                    <ul id="history-list" class="history-list">
+                        <!-- History injected via JavaScript -->
+                         <li class="history-item empty">Start camera to see history</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Script Application Logic -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
