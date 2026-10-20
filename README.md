@@ -1,29 +1,47 @@
 # Custom Keypoint Sign Language Recognition System
 
-A clean, scratch-built Machine Learning project for Hand Gesture/Sign Language detection mapping pure 21-hand landmarks (via MediaPipe) through a standard random forest classifier.
+A hand gesture recognition project using MediaPipe to extract 21 hand
+landmarks and a Random Forest classifier to recognize custom gestures.
 
 ## Directory Structure
-- `data/`         : Location where your recorded keypoint CSVs will be saved.
-- `models/`       : Location where your trained `rf_model.pkl` and `label_encoder.pkl` reside.
-- `src/`          : The core logic of the application.
-- `archive/`      : The location for your old legacy scripts that have been deprecated.
 
-## Pipeline Flow
+- `data/`: Recorded gesture keypoint CSV files.
+- `models/`: Trained `rf_model.pkl` and `label_encoder.pkl`.
+- `src/`: Data collection, training, and live prediction scripts.
+- `archive/`: Deprecated scripts retained for reference.
 
-1. **Collect Keypoints**: Extract raw feature coordinates from your webcam per gesture.
-2. **Train Model**: Fit a classical random forest classifier directly to your customized CSV.
-3. **Live Test**: Deploy a live OpenCV window capturing identical keypoint extraction loops and live-predicting against the trained `rf_model.pkl`.
+## Pipeline
 
-## How to execute
+1. **Collect keypoints:** Record hand landmark coordinates from a webcam
+   for each gesture.
+2. **Train the model:** Train a Random Forest classifier on the collected data.
+3. **Run live predictions:** Recognize gestures from the webcam using
+   the trained model.
 
-### Install Dependencies
-`pip install -r requirements.txt`
+## Installation
 
-### 1) Gather custom gestures
-`python src/collect_keypoints.py`
+pip install -r requirements.txt
 
-### 2) Train model
-`python src/train_model.py`
+## Usage
 
-### 3) Live Test webcam prediction
-`python src/final.py`
+### 1. Collect custom gestures
+
+python src/collect_keypoints.py
+
+### 2. Train the model
+
+python src/train_model.py
+
+### 3. Run live webcam prediction
+
+python src/final.py
+
+## Acknowledgments
+
+Based on the original project:
+https://github.com/ismailzoukenissas/Sign-Language-Interpreter-using-Deep-Learning
+
+## Scope
+
+This system recognizes the gestures represented in its training data.
+It does not translate complete sign language conversations.
